@@ -42,7 +42,7 @@ exports.onePedido = async (req,res,next) => {
             path:"pedido.producto",
             model:"Productos"
         });
-        if (!pedido) return res.json({mensaje: "No Encontrado"});
+        if (!pedido) return res.json({mensaje: "Pedido No Encontrado"});
         return res.json(pedido);
     } catch (error) {
         return res.json({mensaje: error});
@@ -54,7 +54,7 @@ exports.onePedido = async (req,res,next) => {
 exports.deletePedido = async (req,res,next) => {
     try {
         await Pedido.findByIdAndDelete(req.params.id);
-        return res.status(200).json('Pedido Eminado Correctamenre');
+        return res.status(200).json('Pedido Eliminado Correctamente');
     } catch (error) {
         return res.json({mensaje: error});
     }
@@ -73,7 +73,7 @@ exports.updatePedido = async (req,res,next) => {
             path:"pedido.producto",
             model:"Productos"
         });
-        if (!pedido) return res.json({mensaje: "No Encontrado"});
+        if (!pedido) return res.json({mensaje: "Pedido No Encontrado"});
         return res.json(pedido);
     } catch (error) {
         return res.json({mensaje: error});

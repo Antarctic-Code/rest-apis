@@ -35,7 +35,7 @@ exports.allClientes = async (req,res,next) => {
 exports.oneCliente = async (req,res,next) => {
     try {
         const cliente = await Cliente.findById(req.params.id);
-        if (!cliente) return res.json({mensaje: "No Encontrado"});
+        if (!cliente) return res.json({mensaje: "Cliente no Encontrado"});
         return res.json(cliente);
     } catch (error) {
         return res.status(400).json({mensaje: error});
@@ -47,7 +47,7 @@ exports.oneCliente = async (req,res,next) => {
 exports.deleteCliente = async (req,res,next) => {
     try {
         await Cliente.findByIdAndDelete(req.params.id);
-        return res.status(200).json('Cliente Eminado Correctamenre');
+        return res.status(200).json('Cliente Eliminado Correctamente');
     } catch (error) {
         return res.status(400).json({mensaje: error});
     }
