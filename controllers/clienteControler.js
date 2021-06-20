@@ -35,7 +35,7 @@ exports.allClientes = async (req,res,next) => {
 exports.oneCliente = async (req,res,next) => {
     try {
         const cliente = await Cliente.findById(req.params.id);
-        if (!cliente) return res.json({mensaje: "No Encontrado"});
+        if (!cliente) return res.json({mensaje: "Cliente no Encontrado"});
         return res.json(cliente);
     } catch (error) {
         return res.status(400).json({mensaje: error});
