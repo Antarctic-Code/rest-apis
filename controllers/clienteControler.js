@@ -47,7 +47,7 @@ exports.oneCliente = async (req,res,next) => {
 exports.deleteCliente = async (req,res,next) => {
     try {
         await Cliente.findByIdAndDelete(req.params.id);
-        return res.status(200).json('Cliente Eminado Correctamenre');
+        return res.status(200).json('Cliente Eliminado Correctamente');
     } catch (error) {
         return res.status(400).json({mensaje: error});
     }
